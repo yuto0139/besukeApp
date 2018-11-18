@@ -1,0 +1,7 @@
+.remodal{"data-remodal-id" => "modal"}
+  %button.remodal-close{"data-remodal-action" => "close"}
+  %h1 新規ユーザー登録
+  = render 'form', user: @user
+  %br/
+  %button.remodal-cancel{"data-remodal-action" => "cancel"} Cancel
+  %button.remodal-confirm{"data-remodal-action" => "confirm"} OK
