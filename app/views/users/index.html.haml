@@ -21,8 +21,6 @@
 .modal#js-user-register{data: {remodal_id: 'modal', class: 'remodal'}}
   .modal__close{data: {remodal_action: 'close', class: 'remodal-close'}}
   .modal__text
-    %h1 新規ユーザー登録
-  = render 'form', user: @user
-  %br/
-  %button.remodal-cancel{"data-remodal-action" => "cancel"} Cancel
-  %button.remodal-confirm{"data-remodal-action" => "confirm"} OK
+    %h2 ユーザーを新規登録しますか？
+    %button.remodal-confirm= link_to "はい", new_user_path
+    %button.remodal-cancel= link_to "いいえ", {'data-remodal-action': "cancel"}
