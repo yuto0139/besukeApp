@@ -7,17 +7,18 @@
       %th 名前
       %th メール
       %th 電話
-  - @users.each do |user|
-    %tr
-      %td= user.id
-      %td= user.name
-      %td= user.email
-      %td= user.tel
-      %td= link_to "詳細", user
-      %td= link_to "編集", edit_user_path(user)
-      %td= link_to "削除", user, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-%span{data: {remodal_target: 'modal'}}ユーザー追加
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td= user.name
+        %td= user.email
+        %td= user.tel
+        %td= link_to "詳細", user
+        %td= link_to "編集", edit_user_path(user)
+        %td= link_to "削除", user, method: :delete, data: { confirm: '本当に削除しますか？' }
+
+%p{data: { remodal_target: 'modal' }} ユーザー追加
 .modal#js-user-register{data: {remodal_id: 'modal', class: 'remodal'}}
   .modal__close{data: {remodal_action: 'close', class: 'remodal-close'}}
   .modal__text
