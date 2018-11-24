@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require remodal.min
+//= require parsley.min.js
 //= require_tree .

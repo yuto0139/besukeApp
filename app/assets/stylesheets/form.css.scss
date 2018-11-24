@@ -1,0 +1,19 @@
+@media all and (min-width: 769px){
+    form{
+      .form_action{
+        input{
+          width: 30%;
+        }
+      }
+    }
+}
+
+@media all and (max-width: 768px){
+    form{
+      .form_action{
+        input{
+          width: 30%;
+        }
+      }
+    }
+}

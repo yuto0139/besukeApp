@@ -1,12 +1,17 @@
-= form_with(model: user, local: true) do |f|
-  .field
-    = f.label :名前
-    = f.text_field :name, id: :user_name
-  .field
-    = f.label :メール
-    = f.text_field :email, id: :user_email
-  .field
-    = f.label :電話
-    = f.text_field :tel, id: :user_tel
-  .actions
-    = f.submit '保存する'
+= simple_form_for @user do |f|
+  .form_action
+    %label 名前
+    = f.input :name, label: false, type: 'text', required: ''
+  .form_action
+    %label メール
+    = f.input :email, label: false, type: 'email', required: ''
+  .form_action
+    %label 電話
+    = f.input :tel, label: false, type: 'number', 'data-parsley-type': 'integer', required: ''
+  .buttons
+    = f.submit :保存する
+
+:javascript
+  $(function () {
+    $('#form_action').parsley()
+    })
