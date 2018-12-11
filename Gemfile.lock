@@ -846,6 +846,10 @@ GEM
       tilt
     hashdiff (0.3.7)
     hashie (3.5.7)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -1097,6 +1101,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    unicode-display_width (0.1.1)
     vcr (4.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
@@ -1149,6 +1154,8 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id
   hamlit
+  hirb
+  hirb-unicode
   image_optim
   image_optim_pack
   image_processing
