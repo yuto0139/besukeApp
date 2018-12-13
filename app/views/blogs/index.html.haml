@@ -12,10 +12,10 @@
     - @blogs.each do |blog|
       %tr
         %td= blog.title
-        %td Show
+        %td= link_to 'Show', blog
         %td Edit
         %td Destroy
 
 %br
 
-New Blog
+= link_to 'New Blog', new_blog_path

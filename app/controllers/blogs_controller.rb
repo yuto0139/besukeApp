@@ -1,17 +1,39 @@
 class BlogsController < ApplicationController
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+
   def index
     @blogs = Blog.all
   end
 
-  def show;end
+  def show; end
 
-  def new;end
+  def new
+    @blog = Blog.new
+  end
 
-  def edit;end
+  def edit; end
 
-  def create;end
+  def create
+    @blog = Blog.new(blog_params)
 
-  def update;end
+    if @blog.save
+      redirect_to @blog, notice: 'Blog was successfully created.'
+    else
+      render :new
+    end
+  end
 
-  def destroy;end
+  def update; end
+
+  def destroy; end
+
+  private
+    def blog_params
+      params.require(:blog).permit(:title)
+    end
+
+    def set_blog
+      @blog = Blog.find(params[:id])
+    end
+
 end
