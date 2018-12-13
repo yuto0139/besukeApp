@@ -1,0 +1,25 @@
+.tab {
+  border-bottom: 3px solid #fb4343;
+  li {
+    color: #333;
+    float: left;
+    margin: 0 10px 20px 0;
+    padding: 10px 20px;
+    border: 1px solid #fb4343;
+    cursor: pointer;
+    list-style: none;
+    transition: .3s;
+    &.active {
+      color: #fff;
+      background: #fb4343;
+      cursor: auto;
+    }
+  }
+}
+.area ul {
+  display: none;
+  padding-top: 50px;
+  &.show {
+    display: block;
+  }
+}

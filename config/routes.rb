@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#index'
-  resources :users, only: %i[show new edit create update destroy]
+  devise_for :customers
+  root 'home#authentication'
+  resources :users, only: %i[index show new edit create update destroy]
+  get '/home/index', to: 'home#index'
 end
