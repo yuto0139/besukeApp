@@ -23,7 +23,13 @@ class BlogsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if @blog.update(blog_params)
+      redirect_to @blog, notice: 'Blog was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
   def destroy; end
 
