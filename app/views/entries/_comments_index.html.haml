@@ -5,15 +5,13 @@
     %tr
       %th Body
       %th Status
-      %th{ colspan: 4 }
+      %th{ colspan: 2 }
 
   %tbody
     - @comments.each do |comment|
       %tr
         %td= comment.status == 'approved' ? comment.body : '(承認待ち)'
-        %td= comment.status == 'approved' ? '' : 'Approve'
-        %td= link_to 'Show', blog_entry_comment_path(@blog, @entry, comment)
-        %td= link_to 'Edit', edit_blog_entry_comment_path(@blog, @entry, comment)
+        %td= link_to 'Approve', approve_blog_entry_comment_path(@blog, @entry, comment), method: :put if comment.status != 'approved'
         %td= link_to 'Destroy', blog_entry_comment_path(@blog, @entry, comment), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br

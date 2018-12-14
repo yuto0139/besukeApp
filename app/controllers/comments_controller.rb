@@ -1,14 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_entry, only: [:new, :create]
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
-  def show; end
-
-  def new
-    @comment = @entry.comments.build
-  end
-
-  def edit; end
+  before_action :set_entry, only: [:create]
+  before_action :set_comment, only: [:destroy, :approve]
 
   def create
     @comment = @entry.comments.build(comment_params)
@@ -20,17 +12,14 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-    if @comment.update(comment_params)
-      redirect_to [@blog, @entry, @comment], notice: 'Comment was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @comment.destroy
     redirect_to [@blog, @entry], notice: 'Comment was successfully destroyed.'
+  end
+
+  def approve
+    @comment.update(status: 'approved')
+    redirect_to [@blog, @entry], notice: 'Comment was successfully approved.'
   end
 
   private
