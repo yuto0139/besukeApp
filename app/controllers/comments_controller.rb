@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment = @entry.comments.build(comment_params)
 
     if @comment.save
-      redirect_to [@blog, @entry, @comment], notice: 'Comment was successfully created.'
+      redirect_to [@blog, @entry], notice: 'Comment was successfully created.'
     else
       render :new
     end
