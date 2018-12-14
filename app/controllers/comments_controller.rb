@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = @entry.comments.build(comment_params)
 
     if @comment.save
+      @mail = NoticeMailer.sendmail_confirm(@blog, @entry, @comment).deliver_later
       redirect_to [@blog, @entry], notice: 'Comment was successfully created.'
     else
       render :new
