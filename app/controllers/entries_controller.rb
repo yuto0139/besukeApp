@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
 
   def show
     @comments = @entry.comments.all
-    @new_comment = @entry.comments.build
+    @comment = @entry.comments.build
   end
 
   def new

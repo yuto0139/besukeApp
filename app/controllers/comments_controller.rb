@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       @mail = NoticeMailer.sendmail_confirm(@blog, @entry, @comment).deliver_later
       redirect_to [@blog, @entry], notice: 'Comment was successfully created.'
     else
-      render :new
+      @comments = @entry.comments.all
+      render 'entries/show'
     end
   end
 
@@ -24,6 +25,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def set_entry
     @entry = Entry.find(params[:entry_id])
     @blog = Blog.find(@entry.blog_id)
