@@ -22,7 +22,6 @@ feature 'Blog管理' do
     expect {
       click_button 'Create Blog'
     }.to change(Blog, :count).by(1)
-    #expect(current_path).to eq blog_path(1)
     expect(page).to have_content 'Blog was successfully created.'
   end
 end
