@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature 'Blog管理' do
   before do
-    @customer = create(:customer)
+    customer = Customer.create!(email: "customer@example.com", password: "password")
+    login_as customer
+    visit blogs_path
+    click_link 'New Blog'
   end
 
   scenario 'Blogの新規作成時にtitleを入力しなかった場合にエラーが表示されること' do
-    visit blogs_path
-    sign_in @customer
-    click_link 'New Blog'
     expect {
       click_button 'Create Blog'
     }.to change(Blog, :count).by(0)
@@ -18,8 +18,6 @@ feature 'Blog管理' do
   end
 
   scenario 'Blogの新規作成時にtitleを入力した場合はデータが保存され閲覧画面に遷移すること' do
-    visit blogs_path
-    click_link 'New Blog'
     fill_in 'Title', with: 'title'
     expect {
       click_button 'Create Blog'
