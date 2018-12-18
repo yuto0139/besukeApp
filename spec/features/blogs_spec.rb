@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 feature 'Blog管理' do
+  before do
+    @customer = create(:customer)
+  end
+
   scenario 'Blogの新規作成時にtitleを入力しなかった場合にエラーが表示されること' do
     visit blogs_path
+    sign_in @customer
     click_link 'New Blog'
     expect {
       click_button 'Create Blog'

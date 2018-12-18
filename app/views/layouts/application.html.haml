@@ -10,5 +10,5 @@
     %p.alert= alert
     = yield
     = javascript_include_tag 'application'
-    -# - if customer_signed_in?
+    - if customer_signed_in?
       %p= link_to "ログアウト", destroy_customer_session_path, method: :delete
