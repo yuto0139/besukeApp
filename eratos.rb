@@ -5,8 +5,8 @@ class Eratos
     numbers = (2..n).to_a
     # 素数を入れる配列を用意する
     primes = []
-    # 1. 先頭の数字を取り出す (先頭の数字がなくなるまで繰り返し)
-    while true
+    # 1. 先頭の数字を取り出す (nの平方根まで)
+    while
       top = numbers.shift
       break if !top
     # 2. 取り出した先頭の数字を素数の配列に追加
