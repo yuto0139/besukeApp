@@ -881,7 +881,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.1.0)
+    json (2.3.1)
     json_matchers (0.10.0)
       json_schema
     json_schema (0.19.1)
